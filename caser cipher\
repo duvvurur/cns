@@ -1,0 +1,28 @@
+def encript(p, shift):
+    result = ' '
+    for i in p:
+        asci = ord(i)
+        if i.isupper():
+            result += chr(((asci-65+shift)%26)+65)
+        elif i==' ':
+            result +=' '
+        else:
+            result += chr(((asci-97+shift)%26)+97)
+    return result
+def descript(encriptvalue,shift):
+    result = ''
+    for i in encriptvalue:
+        asci=ord(i)
+        if i.isupper():
+            result += chr(((asci - 65 - shift) % 26) + 65)
+        elif i == ' ':
+            result += ' '
+        else:
+            result += chr(((asci - 97 - shift) % 26) + 97)
+    return result
+p = input("enter a text")
+shift = int(input("enter a shift value"))
+encriptvalue = encript(p,shift)
+descriptvalue = descript(encriptvalue,shift)
+print('encriptedvalue:',encriptvalue)
+print('descriptedvalue:' ,descriptvalue)
